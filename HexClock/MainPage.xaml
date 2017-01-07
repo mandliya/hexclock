@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="HexClock.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HexClock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TimeTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="218"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Width" Value="Auto"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="Margin" Value="0,2"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+            <Style x:Key="SmallTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="37.333"/>
+                <Setter Property="Margin" Value="0,2"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid x:Name="mainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Canvas x:Name="ContentPanel" Margin="12, 0, 620, 0" HorizontalAlignment="Center" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <CompositeTransform Rotation="-20"/>
+            </Canvas.RenderTransform>
+            <Canvas x:Name="TimeText" Height="500" Canvas.Left="-18" Canvas.Top="200" Width="600" RenderTransformOrigin="0.5, 0.5" Opacity="100">
+                <Canvas.RenderTransform>
+                    <CompositeTransform/>
+                </Canvas.RenderTransform>
+                <TextBlock x:Name="TimeHours" TextWrapping="Wrap" Text="12" Canvas.Top="24" Style="{StaticResource TimeTextStyle}" Canvas.Left="-67" Width="267" TextAlignment="Right"/>
+                <TextBlock x:Name="TimeDots" TextWrapping="Wrap" Canvas.Left="204" Text=":" Style="{StaticResource TimeTextStyle}"/>
+                <TextBlock x:Name="TimeMinutes" Canvas.Left="263" TextWrapping="Wrap" Text="59" Canvas.Top="24" Style="{StaticResource TimeTextStyle}" Width="257"/>
+            </Canvas>
+            <Rectangle x:Name="HorizontalSeparator" Height="4" Canvas.Left="-350" Canvas.Top="250" Width="1100" Fill="White"/>
+            <Rectangle x:Name="VerticalSeparator" Fill="White" Height="533" Canvas.Left="213" Canvas.Top="489" Width="4"/>
+            <TextBlock x:Name="ApplicationTitle" TextWrapping="Wrap" Text="Hex Color Clock" Canvas.Top="230" Foreground="White" FontSize="16" Canvas.Left="18"/>
+            <TextBlock x:Name="SecondsLabel" Height="45" Canvas.Left="23" TextWrapping="Wrap" Text="seconds" Canvas.Top="475" Width="166" TextAlignment="Center" Style="{StaticResource SmallTextStyle}" Margin="0"/>
+            <TextBlock x:Name="TimeSeconds" Height="205" Canvas.Left="3" TextWrapping="Wrap" Text="59" Canvas.Top="519" Foreground="White" Width="210" FontSize="186.667" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Opacity="100" VerticalAlignment="Top">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="DateText" Height="39" Canvas.Left="208" TextWrapping="Wrap" Text="2012/12/31" Canvas.Top="210" Width="143" FontSize="29.333" Opacity="100" Foreground="White"/>
+        </Canvas>
+    </Grid>
+</Page>
